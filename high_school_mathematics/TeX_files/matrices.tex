@@ -1,0 +1,1875 @@
+\chapter{ماتریس و دترمینان}
+\thispagestyle{empty}
+
+\begin{quote}
+	{\lotus
+		ما [او و هالموس] فلسفه‌ی مشترکی درمورد جبر خطی داریم؛ فارغ از پایه فکر می‌کنیم، فارغ از پایه می‌نویسیم، اما هنگامی که کار به جای باریک می‌رسد درِ اتاق کارمان را می‌بندیم و با عصبانیت آن را با ماتریس‌ها محاسبه می‌کنیم. \quad - کاپلانسکی%
+		\LTRfootnote{ Irving Kaplansky}
+	}
+\end{quote}
+
+\section{ماتریس}
+ هر آرایش مستطیلی از اعداد، شامل تعدادی سطر و ستون یک ماتریس نامیده می‌شود. هر عدد واقع در هر ماتریس را درایه‌ی آن ماتریس می‌نامیم. معمولاً ماتریس‌ها را با حروف بزرگ مانند $A$، $B$، $C$ و ... نام‌گذاری می‌کنیم.
+
+در حالت کلی، اگر ماتریسی چون $A$ دارای $m$ سطر و $n$ ستون باشد، می‌نویسیم
+$A_{m \times n}$
+و می‌خوانیم $A$ ماتریسی از مرتبه‌ی $m$ در $n$ است. برای هر درایه‌ی ماتریس دو اندیس در نظر می‌گیریم که اندیس سمت چپ جای سطر و اندیس سمت راست جای ستون آن درایه را مشخص می‌کند،
+$a_{ij}$
+یعنی درایه‌ی روی سطر $i$ و ستون $j$.
+\[
+A = \begin{bmatrix}
+	a_{11} & a_{12} & \cdots & a_{1n} \\
+	a_{21} & a_{22} & \cdots & a_{2n} \\
+	\vdots & \vdots & \ddots & \vdots \\
+	a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+\begin{example}
+	ماتریس $B$ ماتریسی شامل دو سطر و سه ستون است. این ماتریس دارای
+	$2 \times 3 = 6$
+	درایه است و مثلاً عدد
+	$\sqrt{3}$
+	درایه‌ی روی سطر اول و ستون اول است و درایه‌ی
+	$(-4)$
+	روی سطر دوم و ستون سوم قرار دارد.
+	\[
+	B = \begin{bmatrix}
+		\sqrt{3} & 0 & \dfrac{2}{5} \\
+		\pi & 6 & -4
+	\end{bmatrix}
+	\]
+\end{example}
+
+\begin{example}
+	ماتریس
+	$A=[a_{ij}]_{2 \times 2}$
+	را در نظر بگیرید. اگر برای
+	$i=j$
+	داشته باشیم
+	$a_{ij}=9$
+	و برای
+	$i>j$
+	داشته باشیم
+	$a_{ij}=-4$
+	 و برای
+	 $i<j$
+	 داشته باشیم
+	 $a_{ij}=6$،
+	 در این صورت ماتریس $A$ را با درایه‌هایش نمایش دهید.
+	 \\
+	 پاسخ:
+	 \[
+	 A = \begin{bmatrix}
+	 	9 & 6 \\
+	 	-4 & 9
+	 \end{bmatrix}
+	 \]
+\end{example}
+\bigskip
+دو ماتریس هم‌مرتبه‌ی
+$A=[a_{ij}]_{m \times n}$
+و
+$B=[b_{ij}]_{m \times n}$
+را مساوی گوییم هرگاه درایه‌های نظیر به نظیر آن‌ها با هم برابر باشند.
+$$\forall i,j : a_{ij} = b_{ij} \Leftrightarrow [a_{ij}] = [b_{ij}]$$
+
+\begin{example}
+	اگر دو ماتریس
+	$A = \begin{bmatrix}
+		x-y & 8 \\
+		4 & z-1
+	\end{bmatrix}$
+	و
+	$B = \begin{bmatrix}
+		2 & x+y \\
+		4 & 6
+	\end{bmatrix}$
+	مساوی باشند،
+	$(x+y+z)$
+	را بیابید. \\
+	\textbf{پاسخ:}
+	\[
+	A=B \Rightarrow
+	\begin{cases}
+		x-y=2 \\
+		x+y=8 \\
+		z-1=6
+	\end{cases}
+	\Rightarrow
+	x=5 , y=3 , z=7
+	\Rightarrow
+	x+y+z=15
+	\]
+\end{example}
+
+\subsection{ماتریس‌های خاص}
+\textbf{ماتریس مربعی:}
+اگر در ماتریس $A$، تعداد سطرها با تعداد ستون‌ها برابر و مساوی $n$ باشد، $A$ را یک ماتریس مربعی از مرتبه‌ی $n$ می‌نامیم. اگر
+$i=j$
+در این صورت درایه‌ی
+$a_{ij}$
+روی
+\textbf{قطر اصلی}
+ماتریس قرار دارد.
+\begin{example}
+	\[
+	A = \begin{bmatrix}
+		5 \\
+	\end{bmatrix}_{1 \times 1}
+	= 5
+	\qquad
+	B = \begin{bmatrix}
+		1 & 2 \\
+		-1 & 0
+	\end{bmatrix}_{2 \times 2}
+	\qquad
+	C = \begin{bmatrix}
+		2 & 1 & 3 \\
+		-4 & 5 & 0 \\
+		3 & 7 & 8
+	\end{bmatrix}_{3 \times 3}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس سطری:}
+اگر ماتریس $A$ فقط دارای یک سطر باشد، آن را یک ماتریس سطری می‌نامیم.
+\begin{example}
+	\[
+	A = \begin{bmatrix}
+		11
+	\end{bmatrix}_{1 \times 1}
+	=11
+	\qquad
+	B = \begin{bmatrix}
+		3 & 7
+	\end{bmatrix}_{1 \times 2}
+	\qquad
+	C = \begin{bmatrix}
+		2 & -1 & 4 & 6
+	\end{bmatrix}_{1 \times 4}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس ستونی:}
+اگر ماتریس $A$ فقط دارای یک ستون باشد، آن را یک ماتریس ستونی می‌نامیم.
+\begin{example}
+	\[
+	A = \begin{bmatrix}
+		23
+	\end{bmatrix}_{1 \times 1}
+	=23
+	\qquad
+	B = \begin{bmatrix}
+		0 \\
+		\sqrt{60} \\
+		-53 \\
+		\pi
+	\end{bmatrix}_{4 \times 1}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس قطری:}
+ماتریس قطری، ماتریسی است مربعی که تمام درایه‌های غیرواقع بر قطر اصلی آن صفر باشند. درایه‌های واقع بر قطر اصلی می‌توانند صفر باشند یا نباشند.
+\begin{example}
+	\[
+	A = \begin{bmatrix}
+		2 & 0 \\
+		0 & 7
+	\end{bmatrix}
+	\qquad
+	B = \begin{bmatrix}
+		-1 & 0 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 8
+	\end{bmatrix}
+	\qquad
+	C = \begin{bmatrix}
+		0 & 0 & 0 \\
+		0 & 0 & 0 \\
+		0 & 0 & 0
+	\end{bmatrix}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس اسکالر:}
+اگر ماتریسی قطری باشد و تمام درایه‌های روی قطر اصلی آن با هم برابر باشند، آن را یک ماتریس اسکالر می‌نامیم.
+\begin{example} \label{exmatsca}
+	\[
+	A = \begin{bmatrix}
+		3
+	\end{bmatrix}
+	\qquad
+	B = \begin{bmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{bmatrix}
+	\qquad
+	C = \begin{bmatrix}
+		5 & 0 & 0 \\
+		0 & 5 & 0 \\
+		0 & 0 & 5
+	\end{bmatrix}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس واحد یا همانی:}
+ماتریس اسکالری که درایه‌های قطر اصلی آن یک باشد، ماتریس واحد یا همانی نامیده می‌شود. ماتریس همانی مرتبه‌ی $n$ را با نماد
+$I_n$
+نشان می‌دهند. در مثال
+\ref{exmatsca}،
+ماتریس $B$ یک ماتریس واحد یا همانی از مرتبه‌ی ۲ می‌باشد.
+\\
+\textbf{ماتریس صفر:}
+ماتریس صفر، ماتریسی است که همه‌ی درایه‌های آن صفر باشند. ماتریس صفر را با نماد
+$O$
+یا
+$\overline{O}$
+نشان می‌دهیم.
+\begin{example}
+	$$O_{1 \times 2} =
+	\begin{bmatrix}
+		0 & 0
+	\end{bmatrix}$$
+\end{example}
+\smallskip
+\textbf{ماتریس پایین‌مثلثی:}
+اگر درایه‌های بالای قطر اصلی ماتریس $A$ برابر صفر باشند، $A$ را ماتریس پایین‌مثلثی می‌نامیم. اگر درایه‌های قطر اصلی نیز برابر صفر باشند، آن ماتریس را پایین‌مثلثی اکید می‌نامیم.
+\begin{example}
+	ماتریس
+	$
+	A = \begin{bmatrix}
+		1 & 0 & 0 \\
+		4 & 2 & 0 \\
+		5 & 3 & 7
+	\end{bmatrix}
+	$
+	یک ماتریس پایین‌مثلثی از مرتبه‌ی ۳ است.
+\end{example}
+\smallskip
+\textbf{ماتریس بالامثلثی:}
+اگر درایه‌های پایین قطر اصلی ماتریس $A$ برابر صفر باشند، $A$ را ماتریس بالامثلثی می‌نامیم. اگر درایه‌های قطر اصلی نیز برابر صفر باشند، آن ماتریس را بالامثلثی اکید می‌نامیم.
+\begin{example}
+	ماتریس
+	$
+	B = \begin{bmatrix}
+		1 & 9 & 2 \\
+		0 & 3 & 5 \\
+		0 & 0 & 6
+	\end{bmatrix}
+	$
+	یک ماتریس بالامثلثی از مرتبه‌ی ۳ است.
+\end{example}
+\smallskip
+\textbf{ترانهاده‌ی یک ماتریس:}
+فرض کنیم
+$A=[a_{ij}]_{m \times n}$
+یک ماتریس باشد. ترانهاده‌ی $A$ که آن را با $A^t$ یا $A'$ نمایش می‌دهیم، برابر است با
+$A^t=[b_{ij}]_{n \times m}$
+و به صورت زیر تعریف می‌شود:
+$$b_{ij} = a_{ji}$$
+
+\begin{example}
+	اگر
+	$
+	A = \begin{bmatrix}
+		2 & \sqrt{2} \\
+		-1 & 3 \\
+		0 & 1
+	\end{bmatrix}
+	$،
+	آنگاه
+	$
+	A^t = \begin{bmatrix}
+		2 & -1 & 0 \\
+		\sqrt{2} & 3 & 1
+	\end{bmatrix}
+	$.
+\end{example}
+\smallskip
+\textbf{ماتریس متقارن:}
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$
+یک ماتریس باشد. $A$ را متقارن گوییم هرگاه
+$A^t=A$.
+
+\begin{example}
+	مقادیر $x$ و $y$ و $z$ را چنان تعیین کنید که ماتریس $A$ متقارن باشد.
+	\[
+	A = \begin{bmatrix}
+		1 & 3 & -2 \\
+		2x-1 & 3 & y-1 \\
+		3y+1 & -x & -4
+	\end{bmatrix}
+	\]
+	\textbf{پاسخ:}
+	\[
+	\begin{cases}
+	2x-1 = 3 \\
+	3y+1 = -2 \\
+	y-1 = -x
+	\end{cases}
+	\Rightarrow
+	x=2 ,\: y=-1
+	\]
+	
+\end{example}
+\smallskip
+\textbf{ماتریس پادمتقارن:}
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$
+یک ماتریس باشد. $A$ را پادمتقارن گوییم هرگاه
+$A^t=-A$.
+
+\begin{example}
+	$A$
+	یک ماتریس پادمتقارن مرتبه‌ی $n$ است. حاصل‌جمع همه‌ی درایه‌های $A$ چند است؟ \\
+	\textbf{پاسخ:}
+	درایه‌‌های واقع بر قطر اصلی همگی صفر هستند و درایه‌های غیر قطر اصلی نیز دوبه‌دو قرینه‌اند، پس مجموع همه‌ی درایه‌ها صفر است.
+\end{example}
+
+\subsection{جمع و ضرب در ماتریس‌ها}
+\subsubsection*{جمع ماتریس‌ها}
+برای جمع یا تفاضل دو ماتریس هم‌مرتبه‌ی $A$ و $B$ کافی است درایه‌های نظیر به نظیر دو ماتریس را با هم جمع یا از هم کم کرد.
+$$A=[a_{ij}]_{m \times n} ,\ B=[b_{ij}]_{m \times n} \Rightarrow A \pm B = [a_{ij}] \pm [b_{ij}] = [a_{ij} \pm b_{ij}]$$
+
+\begin{example}
+	دو ماتریس
+	$
+	A = \begin{bmatrix}
+		7 & 3 & 5 \\
+		-5 & 2 & 0
+	\end{bmatrix}
+	$
+	و
+	$
+	B = \begin{bmatrix}
+		3 & 0 \\
+		1 & 6 \\
+		4 & 3
+	\end{bmatrix}
+	$
+	را نمی‌توان با هم جمع کرد، چون هم‌مرتبه نیستند. ولیکن مجموع دو ماتریس
+	$
+	C = \begin{bmatrix}
+		3 & 1 & 5 \\
+		0 & 6 & 8
+	\end{bmatrix}
+	$
+	و
+	$
+	D = \begin{bmatrix}
+		4 & 5 & 6 \\
+		9 & 2 & 1
+	\end{bmatrix}
+	$
+	برابر است با ماتریس
+	$
+	C+D = \begin{bmatrix}
+		7 & 6 & 11 \\
+		9 & 8 & 9
+	\end{bmatrix}
+	$.
+\end{example}
+
+\begin{example}
+	اگر
+	$A=\begin{bmatrix}
+		1 & 2 \\
+		-3 & 5
+	\end{bmatrix}$
+	و
+	$B=\begin{bmatrix}
+		2 & -1 \\
+		3 & 4
+	\end{bmatrix}$،
+	آنگاه
+	$(A+B)^t$
+	و
+	$A^t + B^t$
+	را به دست آورید. \\
+	\textbf{پاسخ:}
+	\[
+	A+B =
+	\begin{bmatrix}
+		1 & 2 \\
+		-3 & 5
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		2 & -1 \\
+		3 & 4
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		3 & 1 \\
+		0 & 9
+	\end{bmatrix}
+	\]
+	
+	\[
+	(A+B)^t =
+	\begin{bmatrix}
+		3 & 0 \\
+		1 & 9
+	\end{bmatrix}
+	\]
+	
+	\[
+	A^t + B^t =
+	\begin{bmatrix}
+		1 & -3 \\
+		2 & 5
+	\end{bmatrix}
+	+
+	\begin{bmatrix}
+		2 & 3 \\
+		-1 & 4
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		3 & 0 \\
+		1 & 9
+	\end{bmatrix}
+	\]
+\end{example}
+
+\subsubsection*{ضرب یک عدد در یک ماتریس}
+برای ضرب یک عدد در ماتریسی چون $A$ آن عدد را در تمام درایه‌های ماتریس ضرب می‌کنیم.
+$$A=[a_{ij}]_{m \times n} ,\ r \in \mathbb{R} \Rightarrow rA = r[a_{ij}]_{m \times n} = [ra_{ij}]_{m \times n}$$
+
+\begin{example}
+	\[
+	-2 \times
+	\begin{bmatrix}
+	2 & 6 & -4 \\
+	3 & -2 & 0
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		-4 & -12 & 8 \\
+		-6 & 4 & 0
+	\end{bmatrix}
+	\]
+\end{example}
+\bigskip
+\textbf{قرینه‌ی ماتریس:}
+اگر
+$A=[a_{ij}]_{m \times n}$
+ماتریسی دلخواه باشد، قرینه‌ی ماتریس $A$ را با
+$(-A)$
+نمایش داده و از ضرب
+$(-1)$
+در ماتریس $A$ به دست می‌آید.
+
+\subsubsection*{خواص مهم جمع ماتریس‌ها و ضرب عدد در ماتریس}
+اگر $A$، $B$ و $C$ ماتریس‌هایی هم‌مرتبه و $r$ و $s$ اعدادی حقیقی باشند خواص زیر قابل اثبات‌اند:
+\LR{
+\begin{enumerate}
+	\item $A+B = B+A$
+	\item $A+(B+C) = (A+B)+C$
+	\item $A+O = O+A = A$
+	\item $A+(-A) = (-A)+A = O$
+	\item $r(A \pm B) = rA \pm rB$
+	\item $(r \pm s)A = rA \pm sA$
+	\item $rA=rB ,\ r \neq 0 \Rightarrow A=B$
+	\item $A=B \Rightarrow rA=rB$
+\end{enumerate}}
+\vspace*{-1cm}
+
+\subsubsection*{ضرب ماتریس در ماتریس}
+فرض کنیم
+$A=[a_{ij}]_{m \times n}$
+و
+$B=[b_{ij}]_{n \times p}$.
+حاصل‌ضرب $A$ در $B$ یعنی
+$AB=[c_{ij}]_{m \times p}$
+و به صورت زیر تعریف می‌شود:
+$$c_{ij} = \sum_{k=1}^{n}a_{ik}b_{kj}$$
+توجه کنید که تعداد ستون‌های $A$ برابر تعداد سطرهای $B$ است.
+
+\begin{example}
+	اگر
+	$A=
+	\begin{bmatrix}
+		1 & 2 \\
+		3 & 4 \\	
+	\end{bmatrix}
+	$
+	و
+	$B=
+	\begin{bmatrix}
+		5 & 6 \\
+		7 & 8 \\	
+	\end{bmatrix}
+	$،
+	حاصل $AB$ و $BA$ را حساب کنید. \\
+	\textbf{پاسخ:}
+	\[
+	AB=
+	\begin{bmatrix}
+		1 & 2 \\
+		3 & 4 \\	
+	\end{bmatrix}
+	\begin{bmatrix}
+		5 & 6 \\
+		7 & 8 \\	
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		(1 \times 5)+(2 \times 7) & (1 \times 6)+(2 \times 8) \\
+		(3 \times 5)+(4 \times 7) & (3 \times 6)+(4 \times 8) \\	
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		19 & 22 \\
+		43 & 50 \\	
+	\end{bmatrix}
+	\]
+	\[
+	BA=
+	\begin{bmatrix}
+		5 & 6 \\
+		7 & 8 \\	
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & 2 \\
+		3 & 4 \\	
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		(5 \times 1)+(6 \times 3) & (5 \times 2)+(6 \times 4) \\
+		(7 \times 1)+(8 \times 3) & (7 \times 2)+(8 \times 4) \\	
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		23 & 34 \\
+		31 & 46 \\	
+	\end{bmatrix}
+	\]
+\end{example}
+
+\begin{example}
+	مثال نقضی برای این گزاره بیابید: اگر حاصل‌ضرب دو ماتریس برابر صفر شود، حداقل یکی از آن‌ها صفر است. \\
+	\textbf{پاسخ:}
+	\[
+	A=
+	\begin{bmatrix}
+		2 & -1 \\
+		4 & -2
+	\end{bmatrix},
+	\qquad
+	B=
+	\begin{bmatrix}
+		1 & 5 \\
+		2 & 10
+	\end{bmatrix}
+	\]
+	\[
+	AB=
+	\begin{bmatrix}
+		2-2 & 10-10 \\
+		4-4 & 20-20
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		0 & 0 \\
+		0 & 0
+	\end{bmatrix}
+	= O_2
+	\]
+\end{example}
+
+\begin{example}
+	با یک مثال نقض نشان دهید که در حالت کلی از تساوی
+	$AB=AC$
+	نمی‌توان نتیجه گرفت
+	$B=C$.
+	\\ \textbf{پاسخ:}
+\end{example}
+
+\begin{example}
+	اگر
+	$A=
+	\begin{bmatrix}
+		1 & -1 \\
+		0 & 2
+	\end{bmatrix}$،
+	تمام ماتریس‌های
+	$2 \times 2$
+	مانند $B$ را بیابید که داشته باشیم
+	$AB=BA$. \\
+	\textbf{پاسخ:}
+	فرض کنیم
+	$B=
+	\begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}$.
+	\[
+	AB =
+	\begin{bmatrix}
+		1 & -1 \\
+		0 & 2
+	\end{bmatrix}
+	\begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a-c & b-d \\
+		2c & 2d
+	\end{bmatrix}
+	\]
+	\[
+	BA =
+	\begin{bmatrix}
+		a & b \\
+		c & d
+	\end{bmatrix}
+	\begin{bmatrix}
+		1 & -1 \\
+		0 & 2
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a & -a+2b \\
+		c & -c+2d
+	\end{bmatrix}
+	\]
+	\[
+	AB=BA \Rightarrow
+	\begin{cases}
+		a-c=a \\
+		2c=c \\
+		b-d=-a+2b \\
+		2d=-c+2d
+	\end{cases}
+	\Rightarrow
+	c=0 , \ b=a-d
+	\]
+	بنابراین $a$ و $d$ اعدادی دلخواه هستند و تمام ماتریس‌های به شکل زیر پاسخ مسئله هستند.
+	\[
+	B=
+	\begin{bmatrix}
+		a & a-d \\
+		0 & d
+	\end{bmatrix}
+	\]
+\end{example}
+
+\subsubsection*{خواص مهم ضرب ماتریس‌ها}
+فرض کنیم
+$A=[a_{ij}]_{m \times n}$،
+$B=[b_{ij}]_{n \times p}$،
+$C=[c_{ij}]_{p \times q}$ و
+$D=[d_{ij}]_{n \times n}$.
+در این صورت:
+\LR{
+	\begin{enumerate}
+		\item $A(BC)=(AB)C$
+		\item $A(B+C)=AB+BC$
+		\item $(A+B)C=AC+BC$
+		\item $DI_n=I_nD=D$
+		\item $DO_n=O_nD=O_n$
+\end{enumerate}}
+
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$
+و
+$B=[b_{ij}]_{n \times n}$
+دو ماتریس باشند و $r$ یک عدد حقیقی. در این صورت:
+\LR{\begin{enumerate}
+		\item $(A+B)^t = A^t + B^t$
+		\item $(rA)^t = rA^t$
+		\item $(AB)^t = B^t A^t$
+		\item $(A^t)^t = A$
+\end{enumerate}}
+
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$.
+در این صورت:
+\[
+\left[ \frac{1}{2}(A+A^t) \right]^t = \frac{1}{2}(A+A^t)^t = \frac{1}{2}(A^t+(A^t)^t) = \frac{1}{2}(A^t+A) = \frac{1}{2}(A+A^t)
+\]
+\[
+\left[ \frac{1}{2}(A-A^t) \right]^t = \frac{1}{2}(A-A^t)^t = \frac{1}{2}(A^t-(A^t)^t) = \frac{1}{2}(A^t-A) = -\frac{1}{2}(A-A^t)
+\]
+در نتیجه
+$\frac{1}{2}(A+A^t)$
+ماتریس متقارن و
+$\frac{1}{2}(A-A^t)$
+ماتریس پادمتقارن است. اکنون با توجه به
+$$A=\frac{1}{2}(A+A^t)+\frac{1}{2}(A-A^t)$$
+نتیجه می‌گیریم که هر ماتریس مربعی را می‌توان به صورت مجموع یک ماترس متقارن و یک ماتریس پادمتقارن نوشت.
+
+\textbf{تعویض‌پذیری:}
+اگر $AB$ و $BA$ با هم برابر باشند، می‌گوییم ماتریس‌های $A$ و $B$ تعویض‌پذیر هستند. اگر $A$ و $B$ دو ماتریس مربعی هم‌مرتبه و تعویض‌پذیر باشند، آنگاه تمام اتحادهای جبری را درمورد آن دو ماتریس می‌توان به کار برد. همچنین اگر $m$ و $n$ دو عدد طبیعی باشند، آنگاه
+$A^mB^n = B^nA^m$،
+یعنی هر توانی از $A$ با هر توانی از $B$ تعویض‌پذیر است. اگر دو ماتریس تعویض‌پذیر نباشند، در نوشتن عبارت‌های جبری باید ترتیب ضرب حفظ شود. همچنین برای
+$a,b,n,m \in \mathbb{N}$
+داریم:
+$$(A^a)^n \times (A^b)^m = (A^b)^m \times (A^a)^n= A^{an+bm}$$
+
+\begin{example}
+	اگر
+	$A^3=
+	\begin{bmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{bmatrix}$ و
+	$A^4=
+	\begin{bmatrix}
+		5 & 3 \\
+		3 & 2
+	\end{bmatrix}$
+	باشد، ماتریس
+	$A^{11}$
+	را به دست آورید. \\
+	\textbf{پاسخ:}
+	باید بررسی کنیم که ۱۱ را چگونه می‌توان به‌صورت جمع ضریبی از ۴ و ضریبی از ۳ نوشت:
+	$$11=2 \times 4 + 3 \times 1 \Rightarrow A^{11} = (A^4)^2 \times (A^3)^1$$
+	\[
+	(A^4)^2=
+	\begin{bmatrix}
+		5 & 3 \\
+		3 & 2
+	\end{bmatrix}
+	\begin{bmatrix}
+		5 & 3 \\
+		3 & 2
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		34 & 21 \\
+		21 & 13
+	\end{bmatrix}
+	\]
+	\[
+	A^{11}=(A^4)^2 \times A^3=
+	\begin{bmatrix}
+		34 & 21 \\
+		21 & 13
+	\end{bmatrix}
+	\begin{bmatrix}
+		3 & 2 \\
+		2 & 1
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		144 & 89 \\
+		89 & 55
+	\end{bmatrix}
+	\]
+\end{example}
+\smallskip
+\textbf{ماتریس خودتوان:}
+ماتریس مربعی $A$ را خودتوان گویند هرگاه
+$A^2=A$.
+اگر یک ماتریس خودتوان باشد، آنگاه به ازای هر عدد طبیعی $n$ داریم
+$A^n=A$.
+
+\begin{example}
+	تمام ماتریس‌هایی به صورت
+	$A=
+	\begin{bmatrix}
+		a & 1 \\
+		0 & b
+	\end{bmatrix}$
+	را بیابید که خودتوان باشند. \\
+	\textbf{پاسخ:}
+	\[
+	A^2=
+	\begin{bmatrix}
+		a & 1 \\
+		0 & b
+	\end{bmatrix}
+	\begin{bmatrix}
+		a & 1 \\
+		0 & b
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a^2 & a+b \\
+		0 & b^2
+	\end{bmatrix}
+	\]
+	\[
+	A^2=A \Rightarrow
+	\begin{bmatrix}
+		a^2 & a+b \\
+		0 & b^2
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		a & 1 \\
+		0 & b
+	\end{bmatrix}
+	\Rightarrow
+	\begin{cases}
+		a^2=a \\
+		a+b=1 \\
+		b^2=b
+	\end{cases}
+	\Rightarrow
+	\begin{cases}
+		a=0 \\
+		b=1
+	\end{cases}
+	\text{یا} \
+	\begin{cases}
+		a=1 \\
+		b=0
+	\end{cases}
+	\]
+	بنابراین:
+	\[
+	A=
+	\begin{bmatrix}
+		0 & 1 \\
+		0 & 1
+	\end{bmatrix}
+	\quad \text{یا} \quad
+	A=
+	\begin{bmatrix}
+		1 & 1 \\
+		0 & 0
+	\end{bmatrix}
+	\]
+\end{example}
+
+\begin{example}
+	اگر $A$ خودتوان و $I$ ماتریس همانی هم‌مرتبه با $A$ باشد، حاصل
+	$(A+I)^3$
+	چیست؟ \\
+	\textbf{پاسخ:}
+	$A$ و $I$
+	تعویض‌پذیرند. بنابراین:
+	$$(A+I)^3 = A^3 + 3A^2 + 3A + I = A + 3A + 3A + I = 7A + I$$
+\end{example}
+
+\begin{theorem}
+	اگر $A$ خودتوان و $I$ ماتریس همانی هم‌مرتبه با $A$ باشد، به ازای هر عدد طبیعی $n$ داریم:
+	$$(A+I)^n = (2^n-1)A + I$$
+\end{theorem}
+
+\section{دترمینان}
+به هر ماتریس مربعی می‌توان یک عدد نسبت داد که دترمینان آن ماتریس نامیده می‌شود. دترمینان یک ماتریس اطلاعات مفیدی راجع‌به خود ماتریس و خواص آن به ما خواهد داد.
+
+اگر $A$ ماتریسی مربعی از مرتبه‌ی $n$ باشد، در این صورت دترمینان ماتریس $A$ را با نماد
+$\det(A)=|A|$
+نمایش می‌دهیم. برای ماتریس‌های مربعی مرتبه‌ی ۱ و ۲ داریم:
+\[
+A=[k]_{1 \times 1} \Rightarrow |A|=k
+\]
+\[
+B=
+\begin{bmatrix}
+	a & b \\
+	c & d \\	
+\end{bmatrix}
+\Rightarrow
+|B|=ad-bc
+\]
+
+\begin{example}
+	دترمینان ماتریس
+	$A=\begin{bmatrix}
+		\sin\alpha & \cos\alpha \\
+		-\cos\alpha & \sin\alpha \\	
+	\end{bmatrix}$
+	را به دست آوردید.
+	\[
+	|A|=\sin^2\alpha + \cos^2\alpha = 1
+	\]
+\end{example}
+
+پیش از تعریف دترمینان برای ماتریس مربعی مرتبه‌ی ۳ و بالاتر لازم است با چند تعریف دیگر آشنا شویم.
+\\
+\textbf{کهاد:}
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$
+ماتریسی دلخواه باشد. در این صورت $ij$-امین کهاد ماتریس $A$ را که با
+$M_{ij}$
+نمایش می‌دهیم، ماتریسی
+$(n-1) \times (n-1)$
+تعریف می‌کنیم که از حذف سطر $i$ و ستون $j$ ماتریس $A$ به دست می‌آید.
+
+\begin{example}
+	برای ماتریس
+	$A=
+	\begin{bmatrix}
+		2 & -1 & 4 \\
+		0 & 1 & 5 \\
+		6 & 3 & -4
+	\end{bmatrix}$،
+	داریم
+	$M_{13}=
+	\begin{bmatrix}
+		0 & 1 \\
+		6 & 3
+	\end{bmatrix}$
+	و
+	$M_{32}=
+	\begin{bmatrix}
+		2 & 4 \\
+		0 & 5
+	\end{bmatrix}$.
+\end{example}
+\bigskip
+\textbf{همسازه:}
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$
+ماتریسی دلخواه باشد. در این صورت $ij$-امین همسازه‌ی ماتریس $A$ را که با
+$C_{ij}$
+نمایش می‌دهیم، به صورت زیر تعریف می‌کنیم:
+$$C_{ij} = (-1)^{i+j} \left|M_{ij}\right|$$
+
+\begin{example}
+	ماتریس $A$ مثال قبل را در نظر بگیرید.
+	\[
+	C_{13} = (-1)^{1+3} \left|M_{13}\right| = (-1)^4
+	\begin{vmatrix}
+		0 & 1 \\
+		6 & 3
+	\end{vmatrix}
+	= 1 \times (0-6) = -6
+	\]
+	\[
+	C_{32} = (-1)^{3+2} \left|M_{32}\right| = (-1)^5
+	\begin{vmatrix}
+		2 & 4 \\
+		0 & 5
+	\end{vmatrix}
+	= (-1) \times (10 - 0) = -10
+	\]
+\end{example}
+
+\begin{theorem} \label{thmdet3}
+	فرض کنیم
+	$A=[a_{ij}]_{n \times n}$
+	ماتریسی دلخواه باشد. در این صورت حاصل عددی فرمول‌های
+	\LR{\begin{itemize}
+			\item $a_{11}C_{11} + a_{12}C_{12} + \cdots + a_{1n}C_{1n}$
+			\item $a_{21}C_{21} + a_{22}C_{22} + \cdots + a_{2n}C_{2n}$
+			\\ \vdots
+			\item $a_{n1}C_{n1} + a_{n2}C_{n2} + \cdots + a_{nn}C_{nn}$
+			\item $a_{11}C_{11} + a_{21}C_{21} + \cdots + a_{n1}C_{n1}$
+			\item $a_{12}C_{12} + a_{22}C_{22} + \cdots + a_{n2}C_{n2}$
+			\\ \vdots
+			\item $a_{1n}C_{1n} + a_{2n}C_{2n} + \cdots + a_{nn}C_{nn}$
+	\end{itemize}}
+	همگی با هم مساوی هستند.
+\end{theorem}
+
+\textbf{تعریف دترمینان:}
+فرض کنیم $A$ ماتریسی مربعی و دلخواه باشد.
+$|A|$
+را یکی از اعداد مساوی معرفی‌شده در قضیه‌ی
+\ref{thmdet3}
+تعریف می‌کنیم. برای محاسبه‌ی دترمینان کافی است از یکی از این فرمول‌ها استفاده کنیم.
+
+\begin{example}
+	فرض کنید اعداد حقیقی $a$، $b$ و $c$ بزرگتر از صفر و مخالف یکدیگر باشند. داریم:
+	\[
+	\det(A)=
+	\begin{vmatrix}
+		a & b & c \\
+		b & c & a \\
+		c & a & b
+	\end{vmatrix} = 0
+	\]
+	ثابت کنید که
+	$a^2+b^2+c^2 = ab+ac+bc$.
+	\\ \textbf{پاسخ:}
+	\[
+	C_{11}=(-1)^{1+1}
+	\begin{vmatrix}
+		c & a \\
+		a & b
+	\end{vmatrix}
+	\qquad
+	C_{12}=(-1)^{1+2}
+	\begin{vmatrix}
+		b & a \\
+		c & b
+	\end{vmatrix}
+	\qquad
+	C_{13}=(-1)^{1+3}
+	\begin{vmatrix}
+		b & c \\
+		c & a
+	\end{vmatrix}
+	\]
+	\begin{align*}
+		|A| &= a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} \\
+		&= a(bc-a^2) -b(b^2-ac) +c(ab-c^2) \\
+		&= 3abc-a^3+b^3+c^3 \\
+		&= -(a+b+c)(a^2+b^2+c^2-ab-ac-bc) = 0
+	\end{align*}
+	چون
+	$a+b+c \neq 0$،
+	بنابراین:
+	$$a^2+b^2+c^2-ab-ac-bc = 0 \Rightarrow a^2+b^2+c^2 = ab+ac+bc$$
+\end{example}
+
+\begin{example}
+	مطلوب است محاسبه‌ی دترمینان
+	\[
+	A=
+	\begin{bmatrix}
+		1 & 1 & 1 & 1 \\
+		0 & 1 & 2 & 3 \\
+		1 & 2 & 3 & 4 \\
+		2 & 3 & 4 & 5
+	\end{bmatrix}
+	\]
+	\textbf{پاسخ:}
+	\[
+	\det(A)= a_{11}C_{11} + a_{12}C_{12} + a_{13}C_{13} + a_{14}C_{14}
+	\]
+	\[
+		\det(A) =
+		1 \times
+		\begin{vmatrix}
+			1 & 2 & 3 \\
+			2 & 3 & 4 \\
+			3 & 4 & 5
+		\end{vmatrix}
+		-1 \times
+		\begin{vmatrix}
+			0 & 2 & 3 \\
+			1 & 3 & 4 \\
+			2 & 4 & 5
+		\end{vmatrix}
+		+1 \times
+		\begin{vmatrix}
+			0 & 1 & 3 \\
+			1 & 2 & 4 \\
+			2 & 3 & 5
+		\end{vmatrix}
+		-1 \times
+		\begin{vmatrix}
+			0 & 1 & 2 \\
+			1 & 2 & 3 \\
+			2 & 3 & 4
+		\end{vmatrix}
+		= 0
+	\]
+\end{example}
+
+\begin{example}
+	اگر $A$ ماتریسی
+	$3 \times 3$
+	باشد و
+	$|A|=5$،
+	در این صورت حاصل
+	$\left||A|A\right|$
+	را بیابید. \\
+	\textbf{پاسخ:}
+\end{example}
+
+\begin{example}
+	فرض کنید $A$ و $B$ دو ماتریس
+	$3 \times 3$
+	باشند که $A$ متقارن است. ثابت کنید
+	$|A+B|=|A+B^t|$.
+	\\ \textbf{پاسخ:}
+\end{example}
+
+\subsection{ویژگی‌های دترمینان}
+در این قسمت، ویژگی‌های دترمینان را بیان می‌کنیم. برای سادگی، ویژگی‌ها را برای ماتریس مربعی مرتبه‌ی ۲ ذکر می‌کنیم.
+\begin{enumerate}
+	\item 
+	اگر همه‌ی درایه‌های یک سطر (ستون) را در عدد حقیقی $r$ ضرب کنیم، آنگاه دترمینان ماتریس جدید $r$ برابر ماتریس قبلی است.
+	\[
+	\begin{vmatrix}
+		ra & b \\
+		rc & d
+	\end{vmatrix}
+	= r
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+	\]
+	\item 
+	دترمینان ماتریس قطری برابر با حاصل‌ضرب درایه‌های قطر اصلی آن است.
+	\[
+	\begin{vmatrix}
+		a & 0 \\
+		0 & b
+	\end{vmatrix} = ab
+	\]
+	\item 
+	اگر همه‌ی درایه‌های یک سطر (ستون) برابر صفر باشند، آنگاه دترمینان ماتریس برابر صفر است.
+	\[
+	\begin{vmatrix}
+		0 & 0 \\
+		c & d
+	\end{vmatrix} = 0
+	\]
+	\item 
+	اگر دو سطر (دو ستون) یکسان باشد، آنگاه دترمینان ماتریس برابر صفر است.
+	\[
+	\begin{vmatrix}
+		a & b \\
+		a & b
+	\end{vmatrix} = 0
+	\]
+	\item 
+	اگر یک سطر (ستون) مضربی از یک سطر (ستون) دیگر باشد، آنگاه دترمینان ماتریس برابر صفر است.
+	\[
+	\begin{vmatrix}
+		a & b \\
+		ka & kb
+	\end{vmatrix} = 0
+	\]
+	\item 
+	اگر مضرب‌های یک سطر (ستون) را به سطر (ستون) دیگر اضافه کنیم، مقدار دترمینان تغییر نمی‌کند.
+	\[
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		a & b+ma \\
+		c & d+mc
+	\end{vmatrix}
+	\]
+	\item 
+	اگر جای دو سطر (دو ستون) را عوض کنیم، آنگاه دترمینان ماتریس جدید قرینه‌ی دترمینان ماتریس قبلی است.
+	\[
+	\begin{vmatrix}
+		c & d \\
+		a & b
+	\end{vmatrix}
+	= -
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+	\]
+	\item 
+	دترمینان ترانهاده‌ی یک ماتریس با دترمینان خود آن ماتریس برابر است.
+	\[
+	\begin{vmatrix}
+		a & b \\
+		c & d
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		a & c \\
+		b & d
+	\end{vmatrix}
+	\]
+	\item 
+	اگر همه‌ی درایه‌های یک سطر (ستون)، مجموع دو مقدار باشند، می‌توان دترمینان را برابر مجموع دو دترمینان نوشت.
+	\[
+	\begin{vmatrix}
+		a+b & c+d \\
+		e & f
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		a & c \\
+		e & f
+	\end{vmatrix}
+	+
+	\begin{vmatrix}
+		b & d \\
+		e & f
+	\end{vmatrix}
+	\]
+\end{enumerate}
+
+\begin{theorem}
+	اگر
+	$A=[a_{ij}]_{m \times m}$ و
+	$B=[b_{ij}]_{m \times m}$،
+	آنگاه
+	$|AB|=|A||B|$. \\
+	\textbf{نتیجه:}
+	فرض کنیم
+	$A=[a_{ij}]_{m \times m}$
+	و
+	$n \in \mathbb{N}$.
+	در این صورت
+	$|A^n|=|A|^n$.
+\end{theorem}
+
+\begin{theorem}
+	اگر
+	$A=[a_{ij}]_{n \times n}$
+	و
+	$r \in \mathbb{R}$،
+	در این صورت
+	$|rA| = r^n|A|$.
+\end{theorem}
+
+\begin{example}
+	به کمک ویژگی‌های دترمینان‌ها ثابت کنید
+	\[
+	\begin{vmatrix}
+		1 & 1 & 1 \\
+		x & y & z \\
+		x^2 & y^2 & z^2
+	\end{vmatrix}
+	= (y-x)(z-x)(z-y)
+	\]
+	\\ \textbf{پاسخ:}
+\end{example}
+
+\begin{example}
+	به کمک ویژگی‌های دترمینان‌ها ثابت کنید
+	\[
+	\begin{vmatrix}
+		1+x & y & z \\
+		x & 1+y & z \\
+		x & y & 1+z
+	\end{vmatrix}
+	= 1+x+y+z
+	\]
+	\\ \textbf{پاسخ:}
+\end{example}
+
+\section{ماتریس وارون}
+فرض کنیم
+$A=[a_{ij}]_{n \times n}$.
+وارون ماتریس $A$ (در صورت وجود) ماتریسی است چون
+$B=[b_{ij}]_{n \times n}$
+به طوری که
+$AB=BA=I_n$.
+در این صورت $B$ را وارون $A$ می‌نامیم و با
+$A^{-1}$
+نشان می‌دهیم.
+
+\begin{theorem}
+	فرض کنیم $A$ ماتریسی مربعی باشد که وارون‌پذیر است. در این صورت وارون $A$ منحصربه‌فرد است.
+\end{theorem}
+
+\begin{theorem}
+	فرض کنیم $A$ ماتریسی مربعی باشد که وارون‌پذیر است. در این صورت
+	$|A| \neq 0$.
+\end{theorem}
+
+\begin{example}
+	ماتریس
+	$A=
+	\begin{bmatrix}
+		2 & -1 \\
+		3 & -4
+	\end{bmatrix}$،
+	$I$
+	ماتریس همانی هم‌مرتبه با $A$ و
+	$\alpha$ و $\beta$
+	دو عدد حقیقی هستند، به‌طوری که
+	$\alpha A^{-1} + \beta I = A$.
+	مقدار
+	$\alpha$ و $\beta$
+	را به دست آورید. \\
+	\textbf{پاسخ:}
+	دو طرف تساوی را در ماتریس $A$ ضرب می‌کنیم.
+	$$\alpha A^{-1}A + \beta IA = AA \Rightarrow \alpha I + \beta A = A^2$$
+	ماتریس
+	$A^2$
+	را حساب می‌کنیم و در تساوی بالا جایگذاری می‌کنیم.
+	\[
+	A^2 = 
+	\begin{bmatrix}
+		2 & -1 \\
+		3 & -4
+	\end{bmatrix}
+	\begin{bmatrix}
+		2 & -1 \\
+		3 & -4
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 2 \\
+		-6 & 13
+	\end{bmatrix}
+	\]
+	\[
+	\alpha
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & 1
+	\end{bmatrix}
+	+ \beta
+	\begin{bmatrix}
+		2 & -1 \\
+		3 & -4
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 2 \\
+		-6 & 13
+	\end{bmatrix}
+	\Rightarrow
+	\begin{bmatrix}
+		\alpha + 2\beta & -\beta \\
+		3\beta & \alpha -4\beta
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		1 & 2 \\
+		-6 & 13
+	\end{bmatrix}
+	\]
+	\[
+	\Rightarrow
+	\begin{cases}
+		\alpha + 2\beta = 1 \\
+		-\beta = 2
+	\end{cases}
+	\Rightarrow
+	\alpha = 5 \ , \ \beta = -2
+	\]
+\end{example}
+
+\subsection{وارون ماتریس مربعی مرتبه‌ی ۲}
+
+\begin{theorem}
+	ماتریس
+	$A=
+	\begin{bmatrix}
+		a_{11} & a_{12} \\
+		a_{21} & a_{22}
+	\end{bmatrix}$
+	وارون‌پذیر است اگر و تنها اگر
+	$|A| \neq 0$.
+	در این حالت داریم:
+	\[
+	A^{-1} = \frac{1}{|A|}
+	\begin{bmatrix}
+		a_{22} & -a_{12} \\
+		-a_{21} & a_{11}
+	\end{bmatrix}
+	\]
+\end{theorem}
+
+\begin{example}
+	وارون ماتریس
+	$A=
+	\begin{bmatrix}
+		10 & 2 \\
+		4 & 1
+	\end{bmatrix}$
+	به دست آورید. \\
+	\textbf{پاسخ:}
+	چون
+	$|A|=2 \neq 0$
+	پس $A$ وارون‌پذیر است و داریم:
+	\[
+	A^{-1}=\frac{1}{2}
+	\begin{bmatrix}
+		1 & -2 \\
+		-4 & 10
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\dfrac{1}{2} & -1 \\
+		-2 & 5
+	\end{bmatrix}
+	\]
+\end{example}
+
+\begin{example}
+	اگر
+	$A=
+	\begin{bmatrix}
+		4 & 3 \\
+		2 & 5
+	\end{bmatrix}$
+	و
+	$B=
+	\begin{bmatrix}
+		-2 & -3 \\
+		5 & -1
+	\end{bmatrix}$،
+	حاصل عبارت
+	$(2A^{-1}-3B^{-1})$
+	را بیابید. \\
+	\textbf{پاسخ:}
+\end{example}
+
+\begin{example}
+	اگر
+	$A=
+	\begin{bmatrix}
+		5 & 2 \\
+		3 & 2
+	\end{bmatrix}$،
+	ابتدا ماتریس
+	$A^{-1}$
+	را به دست آورده و $|A|$ را با $|A^{-1}|$ مقایسه کنید. \\
+	\textbf{پاسخ:}
+\end{example}
+
+\subsection{وارون ماتریس مربعی مرتبه‌ی ۳}
+
+\begin{theorem}
+	ماتریس
+	$A=
+	\begin{bmatrix}
+		a_{11} & a_{12} & a_{13} \\
+		a_{21} & a_{22} & a_{23} \\
+		a_{31} & a_{32} & a_{33}
+	\end{bmatrix}$
+	وارون‌پذیر است اگر و تنها اگر
+	$|A| \neq 0$.
+	در این حالت داریم:
+	\[
+	A^{-1} = \frac{1}{|A|}
+	\begin{bmatrix}
+		C_{11} & C_{21} & C_{31} \\
+		C_{12} & C_{22} & C_{32} \\
+		C_{13} & C_{23} & C_{33}
+	\end{bmatrix}
+	\]
+\end{theorem}
+
+\begin{example}
+	برای ماتریس
+	$A=
+	\begin{bmatrix}
+		2 & 3 & -4 \\
+		0 & -4 & 2 \\
+		1 & -1 & 5
+	\end{bmatrix}$
+	داریم:
+	\[
+	C_{11}=
+	\begin{vmatrix}
+		-4 & 2 \\
+		-1 & 5
+	\end{vmatrix} = -18
+	\ , \quad
+	C_{12}= -
+	\begin{vmatrix}
+		0 & 2 \\
+		1 & 5
+	\end{vmatrix} = 2
+	\ , \quad
+	C_{13}=
+	\begin{vmatrix}
+		0 & -4 \\
+		1 & -1
+	\end{vmatrix} = 4
+	\ ,
+	\]
+	\[
+	C_{21}= -
+	\begin{vmatrix}
+		3 & -4 \\
+		-1 & 5
+	\end{vmatrix} = -11
+	\ , \quad
+	C_{22}=
+	\begin{vmatrix}
+		2 & -4 \\
+		1 & 5
+	\end{vmatrix} = 14
+	\ , \quad
+	C_{23}= -
+	\begin{vmatrix}
+		2 & 3 \\
+		1 & -1
+	\end{vmatrix} = 5
+	\ ,
+	\]
+	\[
+	C_{31}=
+	\begin{vmatrix}
+		3 & -4 \\
+		-4 & 2
+	\end{vmatrix} = -10
+	\ , \quad
+	C_{32}= -
+	\begin{vmatrix}
+		2 & -4 \\
+		0 & 2
+	\end{vmatrix} = -4
+	\ , \quad
+	C_{33}=
+	\begin{vmatrix}
+		2 & 3 \\
+		0 & -4
+	\end{vmatrix} = -8
+	\ ,
+	\]
+	همچنین
+	$|A|=-46$،
+	بنابراین:
+	\[
+	A^{-1} = -\frac{1}{46}
+	\begin{bmatrix}
+		-18 & -11 & -10 \\
+		2 & 14 & -4 \\
+		4 & 5 & -8
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\dfrac{9}{23} & \dfrac{11}{46} & \dfrac{5}{23} \\
+		\dfrac{-1}{23} & \dfrac{-7}{23} & \dfrac{2}{23} \\
+		\dfrac{-2}{23} & \dfrac{-5}{46} & \dfrac{4}{23}
+	\end{bmatrix}
+	\]
+\end{example}
+
+\begin{example}[پیش‌نیاز: دستگاه معادلات خطی]
+	دو ریاضی‌دان به کمک یک ماتریس رمزنگاری به هم پیام می‌دهند. می‌دانید ماتریس رمزنگاری آن‌ها یک ماتریس ۳ در ۳ است. به هر حرف الفبای انگلیسی به ترتیب اعداد ۱ تا ۲۶ و به فاصله‌ی بین دو کلمه عدد ۲۷ اختصاص داده می‌شود. شما سه پیام لورفته‌ی آن‌ها را در اختیار دارید:
+	\[
+	HEY^*=
+	\begin{bmatrix}
+		11 \\ 29 \\ -6
+	\end{bmatrix} \ ,
+	\quad
+	TWO^*=
+	\begin{bmatrix}
+		117 \\ 83 \\ -94
+	\end{bmatrix} \ ,
+	\quad
+	MAX^*=
+	\begin{bmatrix}
+		6 \\ 40 \\ -5
+	\end{bmatrix}
+	\]
+	اکنون پیامی به صورت زیر مخابره شده است. آن را رمزگشایی کنید.
+	\[
+	\begin{bmatrix}
+		62 & 99 & 51 \\
+		39 & 48 & 17 \\
+		-47 & -72 & -37
+	\end{bmatrix}
+	\]
+	\\
+	\textbf{پاسخ:}
+	ابتدا حروف سه پیام اول را مطابق الفبا به عدد تبدیل می‌کنیم.
+	\[
+	HEY=
+	\begin{bmatrix}
+		8 \\ 5 \\ 25
+	\end{bmatrix} \ ,
+	\quad
+	TWO=
+	\begin{bmatrix}
+		20 \\ 23 \\ 15
+	\end{bmatrix} \ ,
+	\quad
+	MAX=
+	\begin{bmatrix}
+		13 \\ 1 \\ 24
+	\end{bmatrix}
+	\]
+	ماتریس رمزنگاری را به صورت زیر فرض می‌کنیم:
+	\[
+	K=
+	\begin{bmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{bmatrix}
+	\]
+	داریم:
+	\[
+	\begin{bmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{bmatrix}
+	\begin{bmatrix}
+		8 \\ 5 \\ 25
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		11 \\ 29 \\ -6
+	\end{bmatrix}
+	\Rightarrow
+	\begin{bmatrix}
+		8a+5b+25c \\
+		8d+5e+25f \\
+		8g+5h+25i
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		11 \\ 29 \\ -6
+	\end{bmatrix}
+	\]
+	
+	\[
+	\begin{bmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{bmatrix}
+	\begin{bmatrix}
+		20 \\ 23 \\ 15
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		117 \\ 83 \\ -94
+	\end{bmatrix}
+	\Rightarrow
+	\begin{bmatrix}
+		20a+23b+15c \\
+		20d+23e+15f \\
+		20g+23h+15i
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		117 \\ 83 \\ -94
+	\end{bmatrix}
+	\]
+	
+	\[
+	\begin{bmatrix}
+		a & b & c \\
+		d & e & f \\
+		g & h & i
+	\end{bmatrix}
+	\begin{bmatrix}
+		13 \\ 1 \\ 24
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		6 \\ 40 \\ -5
+	\end{bmatrix}
+	\Rightarrow
+	\begin{bmatrix}
+		13a+b+24c \\
+		13d+e+24f \\
+		13g+h+24i
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		6 \\ 40 \\ -5
+	\end{bmatrix}
+	\]
+	با حل دستگاه بالا خواهیم داشت:
+	$$a=2,\ b=4,\ c=-1, \ d=3, \ e=1, \ f=0, \ g=-2, \ h=-3, \ i=1$$
+	\[
+	K=
+	\begin{bmatrix}
+		2 & 4 & -1 \\
+		3 & 1 & 0 \\
+		-2 & -3 & 1
+	\end{bmatrix}
+	\]
+\end{example}
+
+\subsection{خواص ماتریس وارون}
+فرض کنیم $A$ و $B$ وارون‌پذیر و $c$ یک عدد غیرصفر و $n$ یک عدد طبیعی باشد. آنگاه:
+\LR{
+	\begin{enumerate}
+		\item $(A^{-1})^{-1}=A$
+		\item $(cA)^{-1}=\frac{1}{c}A^{-1}$
+		\item $(AB)^{-1}=B^{-1}A^{-1}$
+		\item $(A^n)^{-1}=(A^{-1})^n$
+		\item $(A^t)^{-1}=(A^{-1})^t$
+\end{enumerate}}
+\vspace*{-0.5cm}
+
+\begin{example}
+	اگر
+	$A^{-1}=
+	\begin{bmatrix}
+		1 & -1 \\
+		-3 & 4
+	\end{bmatrix}$،
+	آنگاه
+	$(A^t)^{-1}$
+	را به دست آورید. \\
+	\textbf{پاسخ:}
+	\[
+	(A^t)^{-1}=(A^{-1})^t=
+	\begin{bmatrix}
+		1 & -1 \\
+		-3 & 4
+	\end{bmatrix}^t
+	=
+	\begin{bmatrix}
+		1 & -3 \\
+		-1 & 4
+	\end{bmatrix}
+	\]
+	
+\end{example}
+
+\section{مسائل}
+
+\begin{problem} \label{prmat1}
+	$A$
+	یک ماتریس پادمتقارن مرتبه‌ی ۳ با درایه‌های صحیح است، به طوری که در دو شرط زیر صدق می‌کند: \\
+	۱) حاصل‌ضرب همه‌ی درایه‌های غیر قطر اصلی آن $-4$ است. \\
+	۲) حاصل‌جمع درایه‌های ستون سوم آن ۳ است. \\
+	$A$
+	را مشخص کنید.
+\end{problem}
+
+\begin{problem} \label{prmat2}
+	$AB$ و $AC$
+	را به دست آورید و با هم مقایسه کنید.
+	\[
+	A=
+	\begin{bmatrix}
+		1 & 2 & 0 \\
+		1 & 1 & 0 \\
+		-1 & 4 & 0
+	\end{bmatrix},
+	\qquad
+	B=
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		1 & 1 & -1 \\
+		11 & 10 & 1
+	\end{bmatrix},
+	\qquad
+	C=
+	\begin{bmatrix}
+		1 & 2 & 3 \\
+		1 & 1 & -1 \\
+		12 & 2 & -4
+	\end{bmatrix}
+	\]
+\end{problem}
+
+\begin{problem} \label{prmat3}
+	ماتریس‌های زیر را با درایه‌هایشان مشخص کنید. سپس حاصل $AB$ را به دست آورید.
+	\[
+	A = [a_{ij}]_{4 \times 3} \quad , \quad a_{ij} =
+	\begin{cases}
+		i+j \qquad i=j \\
+		i-j \qquad i>j \\
+		j-i \qquad j>i
+	\end{cases}
+	\]
+	\[
+	B = [b_{ij}]_{3 \times 2} \quad , \quad b_{ij} =
+	\begin{cases}
+		i^j \qquad i=j \\
+		j^i \qquad i \neq j
+	\end{cases}
+	\]
+\end{problem}
+
+\begin{problem} \label{prmat4}
+	با فرض
+	$A=
+	\begin{bmatrix}
+		2 & 1 & 1 \\
+		1 & 2 & 1 \\
+		1 & 1 & 2
+	\end{bmatrix}$،
+	حاصل
+	$A^2 - 4A - 5I$
+	را بیابید.
+\end{problem}
+
+\begin{problem} \label{prmat5}
+	$A$ و $B$
+	دو ماتریس مربعی هم‌مرتبه‌اند و عمل $\circledast$ به صورت زیر تعریف شده است:
+	$$A \circledast B = AB - BA$$
+	نشان دهید برای ماتریس مربعی $C$ که با $A$ و $B$ هم‌مرتبه باشد، داریم:
+	$$(A \circledast B) \circledast C + (B \circledast C) \circledast A + (C \circledast A) \circledast B = O$$
+\end{problem}
+
+\begin{problem} \label{prmat6}
+	اگر
+	$A=
+	\begin{bmatrix}
+		30 & 25 \\
+		-36 & -30
+	\end{bmatrix}$،
+	ماتریس
+	$A^{100}$
+	را به دست آورید.
+\end{problem}
+
+\begin{problem} \label{prmat7}
+	با چه شرطی، این برابری برقرار است؟
+	\[
+	\begin{vmatrix}
+		1 & \cos\alpha & \cos\beta \\
+		\cos\alpha & 1 & \cos\gamma \\
+		\cos\beta & \cos\gamma & 1
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		0 & \cos\alpha & \cos\beta \\
+		\cos\alpha & 0 & \cos\gamma \\
+		\cos\beta & \cos\gamma & 0
+	\end{vmatrix}
+	\]
+\end{problem}
+
+\begin{problem} \label{prmat8}
+	به کمک ویژگی‌های دترمینان‌ها ثابت کنید:
+	\[
+	\begin{vmatrix}
+		1 & 1+x & x^2(y+z) \\
+		1 & 1+y & y^2(x+z) \\
+		1 & 1+z & z^2(x+y)
+	\end{vmatrix} = 0
+	\]
+\end{problem}
+
+\begin{problem} \label{prmat9}
+	به کمک ویژگی‌های دترمینان‌ها ثابت کنید:
+	\[
+	\begin{vmatrix}
+		yz & x^2 & x^2 \\
+		y^2 & xz & y^2 \\
+		z^2 & z^2 & xy
+	\end{vmatrix}
+	=
+	\begin{vmatrix}
+		yz & xy & xz \\
+		xy & xz & yz \\
+		xz & yz & xy
+	\end{vmatrix}
+	\]
+\end{problem}
+
+\begin{problem}[پیش‌نیاز: احتمال] \label{prmat10}
+	ماتریس‌های
+	$A=
+	\begin{bmatrix}
+		a & -7 \\
+		-2 & 0
+	\end{bmatrix}$
+	و
+	$B=
+	\begin{bmatrix}
+		0 & b \\
+		1 & 1
+	\end{bmatrix}$
+	مفروض‌اند. یک تاس را دو بار پرتاب کرده و به جای $a$ و $b$ در ماتریس‌های $A$ و $B$ جای‌گذاری می‌کنیم. چقدر احتمال دارد مجموع دو ماتریس وارون‌پذیر باشد؟
+\end{problem}
+
+\begin{problem} \label{prmat11}
+	ماتریس مربعی $A$ پوچ‌توان نامیده می‌شود، در صورتی که به ازای عددی طبیعی مانند $n$ داشته باشیم
+	$A^n=O$.
+	کوچک‌ترین عدد طبیعی واجد این خاصیت را اندیس $A$ (یا مرتبه‌ی پوچی $n$) گویند. نشان دهید ماتریس زیر پوچ‌توان با اندیس ۳ است.
+	\[
+	A=
+	\begin{bmatrix}
+		1 & 1 & 3 \\
+		5 & 2 & 6 \\
+		-2 & -1 & -3
+	\end{bmatrix}
+	\]
+\end{problem}
+
+\begin{problem} \label{prmat12}
+	اگر $A$ ماتریسی وارون‌پذیر باشد، به‌طوری که
+	$\sqrt{3}A =
+	\begin{bmatrix}
+		-2 & |A|+1 \\
+		3|A| & -|A|
+	\end{bmatrix}$،
+	آنگاه $|A|$ را به دست آورید.
+\end{problem}
