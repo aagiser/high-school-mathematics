@@ -1,4 +1,4 @@
-\chapter{مجموعه‌ها}
+\chapter{نظریه‌ی مجموعه‌ها}
 \thispagestyle{empty}
 
 \begin{quote}
@@ -9,14 +9,653 @@
 \end{quote}
 
 \section{مجموعه}
+مجموعه یکی از مفاهیم ریاضی است که تعریف ندارد. منظور از یک مجموعه دسته‌ای از اشیای کاملاً مشخص است که هر شیء مفروض نسبت به این مجموعه یکی از دو وضع متمایز زیر را داراست:
+\begin{enumerate}
+	\item 
+	آن شیء متعلق به مجموعه باشد.
+	\item 
+	آن شیء متعلق به مجموعه نباشد.
+\end{enumerate}
+اشیایی که مجموعه را تشکیل می‌دهند به نام عنصرهای (عضوهای) مجموعه خوانده می‌شوند. مجموعه‌ها به طریق نام بردن عضوها یا با بیان خاصیتی معین مشخص می‌شوند. هیچ نوع محدودیتی در نوع عضوهای یک مجموعه وجود ندارد، اما هر گروهی از اشیا که مشخص نباشد، مجموعه نیست.
+\begin{example}
+	موارد زیر مجموعه هستند:
+	\begin{enumerate}
+		\item 
+		مجموعه‌ی عددهای ۱، ۴، ۹ و ۱۰ (نام بردن عنصرهای متعلق به مجموعه)
+		\item 
+		مجموعه‌ی عددهای ۱، ۲، ۳ و ... (عددها به همین ترتیب ادامه دارند. به دلیل زیاد بودن عضوها، مجموعه به این صورت نوشته می‌شود.)
+		\item 
+		مجموعه‌ی روزهای هفته (بیان خاصیتی معین)
+	\end{enumerate}
+	اما موارد زیر مجموعه نیستند:
+	\begin{enumerate}
+		\item 
+		سه نفر از شاعران ایرانی (بیان خاصیتی نامعین)
+		\item 
+		دسته‌ای که ویژگی عنصرهایش این است که هر عنصر متعلق به خودش نیست. (تناقض دارد.)
+		\item 
+		دسته‌ای که هر عضوش حداقل یک عضو دارد.
+	\end{enumerate}
+\end{example}
+\smallskip
+مجموعه‌ی $S$ را در نظر بگیرید. اگر عنصر $x$ متعلق به مجموعه‌ی $S$ باشد می‌نویسیم
+$x \in S$
+و اگر متعلق نباشد می‌نویسیم
+$\neg(x \in S)$ یا برای سادگی $x \notin S$.
+برای نوشتن عنصرهای مجموعه یا بیان ویژگی معین، آن را داخل $\{\}$ می‌گذارند. مجموعه‌ی $x$هایی که $x$ دارای ویژگی مشخص $p(x)$ است به صورت زیر نمایش داده می‌شود.
+$$S=\{x \ | \ x \in A \ \wedge \ p(x)\} = \{x \in A \ | \ p(x)\}$$
+در عبارت بالا، $‌‌A$ مجموعه است. مهم است که $x$ها از یک مجموعه انتخاب شوند، وگرنه ممکن است $S$ مجموعه نباشد.
 
-\section{زیرمجموعه}
-
-\section{مجموعه‌ی توانی}
-
-\section{نمایش هندسی مجموعه‌ها}
+\begin{example}
+	مجموعه‌ی
+	$A = \{m \ | \ m \in \mathbb{Z} \ \wedge \ 10<m<14\}$
+	را با عنصرهایش به صورت
+	$A = \{11, 12, 13\}$
+	نمایش می‌دهیم. برای مثال داریم:
+	$11 \in A$ و
+	$14 \notin A$.
+\end{example}
+\smallskip
+مجموعه‌ای را که تعداد اعضای آن متناهی باشد، مجموعه‌ی متناهی می‌نامیم و مجموعه‌ای که متناهی نباشد، نامتناهی می‌نامیم. تعداد عضوهای یک مجموعه‌ی متناهی را عدد اصلی (عدد کاردینال) آن مجموعه می‌نامیم. عدد کاردینال مجموعه‌ی $S$ را با
+$|S|$ یا $n(S)$
+نشان می‌دهیم.
+\begin{example}
+	عدد اصلی مجموعه‌ی
+	$D = \{x \ | \ x \in \mathbb{Z} \ \wedge \ x^2<16\}$
+	را بیابید.
+	\\ \textbf{پاسخ:}
+	$$D = \{-3,-2,-1,0,1,2,3\}$$
+	بنابراین عدد کاردینال مجموعه‌ی $D$ برابر با ۷ است.
+\end{example}
+\smallskip
+مجموعه‌ای وجود دارد که هیچ عنصری متعلق به آن نیست؛ به بیان ریاضی:
+$$\exists x \ \forall y \ \neg(y \in x)$$
+چنین مجموعه‌ای یکتاست و آن را
+\textbf{تهی}
+می‌نامیم و با نماد
+$\emptyset$ یا $\varnothing$
+نشان می‌دهیم که معادل
+$\{\}$
+است. این مجموعه را نباید با
+$\{\varnothing\}$
+اشتباه گرفت. \\
+\textbf{تساوی دو مجموعه:}
+دو مجموعه‌ی $A$ و $B$ برابرند اگر و تنها اگر عنصرهایشان یکی باشد و می‌نویسیم
+$A=B$.
+اگر $A$ و $B$ برابر نباشند، می‌نویسیم
+$A \neq B$.
+با توجه به این تعریف، نتیجه می‌شود که تغییر ترتیب عنصرهای یک مجموعه، آن مجموعه را تغییر نمی‌دهد. همچنین، تکرار عنصرها در یک مجموعه، آن مجموعه را تغییر نمی‌دهد.
+\begin{example}
+	مجموعه‌های زیر را در نظر بگیرید.
+	$$A=\{3,7,9\}, \ B=\{9,3,7\}, \ C=\{2,5,2,8\}, \ D=\{2,5,8\}$$
+	داریم:
+	$A=B$ و $C=D$.
+\end{example}
+\begin{example}
+	اگر دو مجموعه‌ی
+	$\{3,\{z-1,y+1\},\{z\}\}$
+	 و
+	$\{\{2,1\},\{y+1\},x+1\}$
+	 برابر باشند، آنگاه مقدارهای
+	$x$، $y$ و $z$
+	را به دست آورید.
+	\\ \textbf{پاسخ:}
+	\[
+	\begin{cases}
+		x+1=3 \\
+		y+1=z \\
+		\{2,1\}=\{z-1,y+1\}
+	\end{cases}
+	\Rightarrow
+	x=2 \ , \ y=1 \ , \ z=2
+	\]
+\end{example}
+\smallskip
+هرگاه بدانیم که $A$ و $B$ مجموعه هستند، برای این‌که نشان دهیم که
+$A=B$،
+کافی است نشان دهیم که برای هر عنصر دلخواه
+$x_0 \in A$
+داریم
+$x_0 \in B$
+و برای هر عنصر دلخواه
+$x_0 \in B$
+داریم
+$x_0 \in A$.
+\\
+\textbf{زیرمجموعه:}
+مجموعه‌ی $A$ را زیرمجموعه‌ی $B$ می‌گوییم هرگاه هر عنصر متعلق به $A$، متعلق به $B$ باشد و به صورت
+$A \subseteq B$
+نشان می‌دهیم؛ به بیان ریاضی:
+$$A \subseteq B  \iff \forall x \ (x \in A \rightarrow x \in B)$$
+اگر $A$ زیرمجموعه‌ی $B$ نباشد، آن را به صورت
+$A \nsubseteq B$
+نمایش می‌دهیم. \\
+تساوی دو مجموعه را می‌توان به این صورت نیز بیان کرد که
+$A=B$
+اگر و تنها اگر
+$A \subseteq B$ و $B \subseteq A$.
+\begin{example}
+	فرض کنید
+	$A=\{1,2,3,4,5\}$ و $B=\{2,3,4\}$.
+	برای مثال داریم:
+	$$B \subseteq A \ , \quad \{1\} \subseteq A \ , \quad A \nsubseteq B \ , \quad \{2\} \notin B$$
+\end{example}
+\begin{theorem}
+	مجموعه‌ی تهی زیرمجموعه‌ی همه‌ی مجموعه‌هاست؛ به بیان ریاضی:
+	$$\forall x \quad \varnothing \subseteq x$$
+	\dfth \\ \textbf{برهان:}
+	باید نشان دهیم که
+	$\forall y \ \forall x \ (y \in \varnothing \rightarrow y \in x)$.
+	برای این منظور مجموعه‌های دلخواه
+	$x_0$ و $y_0$
+	را در نظر می‌گیریم. باید نشان دهیم عبارت
+	$y_0 \in \varnothing \rightarrow y_0 \in x_0$
+	درست است. گزاره‌ی
+	$y_0 \in \varnothing$
+	نادرست است، پس ارزش کل گزاره به انتقای مقدم درست است.
+	\qed
+\end{theorem}
+\begin{theorem}
+	هر مجموعه‌ای زیرمجموعه‌ی خودش است. یعنی برای هر مجموعه‌ی $A$ داریم
+	$A \subseteq A$.
+	\\ \dfth \\ \textbf{برهان:}
+	باید نشان دهیم که
+	$\forall x \ (x \in A \rightarrow x \in A)$.
+	واضح است که این جمله درست است.
+	\qed
+\end{theorem}
+\begin{theorem}
+	برای سه مجموعه‌ی $A$، $B$ و $C$ اگر
+	$A \subseteq B$ و $B \subseteq C$،
+	آنگاه
+	$A \subseteq C$.
+	\\ \dfth \\ \textbf{برهان:}
+	باید نشان دهیم که
+	$\forall x \ (x \in A \rightarrow x \in C)$.
+	عنصر دلخواه
+	$x_0 \in A$
+	را در نظر بگیرید. طبق فرض
+	$A \subseteq B$،
+	داریم
+	$x_0 \in B$.
+	حال طبق فرض
+	$B \subseteq C$
+	داریم
+	$x_0 \in C$.
+	بنابراین، هر عنصر متعلق به $A$ متعلق به $C$ است. پس
+	$A \subseteq C$.
+	\qed
+\end{theorem}
+\smallskip
+اگر
+$A \subseteq A$
+ولی
+$A \neq B$،
+آنگاه $A$ زیرمجموعه‌ی سره (محض) $B$ نامیده می‌شود و آن را به صورت
+$A \subset B$
+نشان می‌دهیم.
+\begin{example}
+	یک مجموعه‌ی سه عضوی بنویسید که از هر دو عضو آن یکی زیرمجموعه‌ی دیگری باشد.
+	\\ \textbf{پاسخ:}
+	$$A = \{\varnothing, \{1\}, \{1,2\}\}$$
+\end{example}
+\begin{example}
+	فرض کنید
+	$A = \{n \ | \ n=5k+2 \ \wedge \ k \in \mathbb{Z}\}$ و
+	$B = \{n \ | \ n=5k-3 \ \wedge \ k \in \mathbb{Z}\}$.
+	نشان دهید
+	$A=B$.
+	\\ \textbf{پاسخ:}
+	عنصر دلخواه
+	$x \in A$
+	را در نظر بگیرید. داریم:
+	$x = 5m+2 \ , \ m \in \mathbb{Z}$.
+	اگر
+	$m=k-1$،
+	آنگاه
+	$x = 5(k-1)+2 = 5k-3$.
+	پس
+	$A \subseteq B$.
+	اکنون عنصر دلخواه
+	$x \in B$
+	را در نظر بگیرید. داریم:
+	$x = 5m-3 \ , \ m \in \mathbb{Z}$.
+	اگر
+	$m=k+1$،
+	آنگاه
+	$x = 5(k+1)-3 = 5k+2$.
+	پس
+	$B \subseteq A$.
+	بنابراین،
+	$A=B$.
+	\qed
+\end{example}
+\smallskip
+مجموعه‌ی همه‌ی زیرمجموعه‌های $A$، مجموعه‌ی توانی $A$ نامیده می‌شود و با
+$P(A)$
+نشان داده می‌شود.
+\begin{example}
+	مجموعه‌ی توانی
+	$A=\{x,y,z\}$
+	را بنویسید.
+	\\ \textbf{پاسخ:}
+	$$P(A) = \{ \varnothing, \{x\}, \{y\}, \{z\}, \{x,y\}, \{x,z\}, \{y,z\}, \{x,y,z\} \}$$
+\end{example}
+\begin{example}
+	مجموعه‌ی
+	$P(P(P(\varnothing)))$
+	را مشخص کنید.
+	\\ \textbf{پاسخ:}
+	$$P(\varnothing) = \{\varnothing\}$$
+	$$P(P(\varnothing)) = \{\varnothing, \{\varnothing\}\}$$
+	$$P(P(P(\varnothing))) = \{\varnothing, \{\varnothing\}, \{\{\varnothing\}\}, \{\varnothing, \{\varnothing\}\}\}$$
+\end{example}
+\begin{theorem}
+	اگر 
+	$n(A)=m$،
+	آنگاه
+	$n(P(A))=2^m$.
+	\\ \dfth \\ \textbf{برهان:}
+	\textcolor{magenta}{روش اول:}
+	با استقرای ریاضی ثابت می‌کنیم.	اگر
+	$m=0$،
+	یعنی
+	$A=\varnothing$،
+	آنگاه
+	$P(A)=\{\varnothing\}$،
+	$2^0=1$
+	عضو دارد. اکنون فرض می‌کنیم اگر مجموعه‌ی $A$ دارای
+	$m=k$
+	عضو باشد، آنگاه
+	$P(A)$
+	دارای
+	$2^k$
+	است. اکنون درستی ادعا را برای
+	$m=k+1$
+	نشان می‌دهیم. اگر به مجموعه‌ی $A$ یک عضو اضافه کنیم، مجموعه‌ی $A$،
+	$k+1$
+	عضوی می‌شود. این عضو جدید با
+	$2^k$
+	عضو دیگر مجموعه‌ی توانی،
+	$2^k$
+	عضو جدید برای مجموعه‌ی توانی پدید می‌آورد. در نتیجه، تعداد عضوهای مجموعه‌ی توانی مجموعه‌ی
+	$k+1$
+	عضوی، برابر با
+	$2^k+2^k = 2^{k+1}$
+	است. بنابراین، برهان کامل است.
+	\qed \\
+	\textcolor{magenta}{روش دوم:}
+	برای هر زیرمجموعه‌ی $A$، دو احتمال برای هر عنصر
+	$x \in A$
+	وجود دارد، $x$ در زیرمجموعه باشد یا نباشد. در نتیجه، برای $m$ عنصر،
+	$2^m$
+	انتخاب مختلف برای ساختن یک زیرمجموعه از $A$ وجود خواهد داشت. بنابراین، تعداد زیرمجموعه‌های $A$ برابر با
+	$2^m$
+	است.
+	\qed
+\end{theorem}
+\begin{example}
+	تعداد زیرمجموعه‌های یک مجموعه‌ی
+	$2n-5$
+	عضوی، شانزده برابر تعداد زیرمجموعه‌های یک مجموعه‌ی
+	$n-2$
+	عضوی است. مقدار $n$ چقدر است؟
+	\\ \textbf{پاسخ:}
+	$$2^{2n-5} = 16 \times 2^{n-2} = 2^4 \times 2^{n-2} \Rightarrow 2^{2n-5} = 2^{n+2} \Rightarrow 2n-5=n+2 \Rightarrow n=7$$
+\end{example}
+\begin{example}
+	سه مجموعه‌ی
+	$n+3$
+	عضوی،
+	$n+1$
+	عضوی و
+	$n-2$
+	عضوی روی هم ۱۶۴ زیرمجموعه دارند. مقدار $n$ چقدر است؟
+	\\ \textbf{پاسخ:}
+	$$2^{n+3} + 2^{n+1} + 2^{n-2} = 2^n(2^3+2^1+2^{-2}) = 164 \Rightarrow 2^n \times \frac{41}{4} = 64 \Rightarrow 2^n = 16 = 2^4 \Rightarrow n=4$$
+\end{example}
+\smallskip
+\textbf{نمایش هندسی مجموعه‌ها:}
+یکی از ابزارهای شهودی برای فهم بهتر مجموعه‌ها استفاده از تمثیل هندسی است. این کار برای اولین بار توسط ریاضی‌دانی به نام ون%
+\LTRfootnote{ Venn}
+انجام شد و نمودار ون نام گرفت. در نمودار ون در حالت کلی، عضوهای مجموعه درون یک خم بسته در صفحه مانند دایره یا مستطیل نشان داده می‌شود. گاهی ناحیه‌ی داخلی شکلی را که برای نمایش مجموعه به کار می‌رود هاشور می‌زنند. باید توجه داشت که نمودار ون نوعی تمثیل هندسی و شهودی است و به‌وسیله‌ی آن نمی‌توان یک قضیه‌ی ریاضی را ثابت کرد.
+\\
+\textbf{مجموعه‌ی مرجع:}
+در یک بحث معین، تمام عضوهای مجموعه‌های مورد مطالعه متعلق به مجموعه‌ای موسوم به مجموعه‌ی مرجع است. به بیان دیگر، هر بحث دلخواه گفت‌وگویی است درباره‌ی زیرمجموعه‌های یک مجموعه‌ی مرجع. مجموعه‌ی مرجع را با حرف
+$\mathbb{U}$
+نشان می‌دهیم.
 
 \section{جبر مجموعه‌ها}
+\textbf{اجتماع:}
+اجتماع مجموعه‌های $A$ و $B$ مجموعه‌ای است از همه‌ی عنصرهایی که متعلق به $A$ یا متعلق به $B$ (یا متعلق به هر دو مجموعه‌ی $A$ و $B$) باشند. اجتماع $A$ و $B$ را به صورت
+$A \cup B$
+نشان می‌دهیم.
+$$A \cup B = \{x \ | \ x \in A \ \vee x \in B\}$$
+\vspace{-9mm}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, fill=MidnightBlue!40, minimum size =3cm}, scale=0.8, transform shape]
+		\draw[thick] (-2.1,-2.1) rectangle (3.9,2.1) node[above left, xshift=7mm, yshift=-7mm] {$\mathbb{U}$};
+		\node [set, label={135:$A$}] (A) at (0,0){};
+		\node [set, label={45:$B$}] (B) at (1.8,0){};
+		\draw (0,0) circle(1.5cm);
+		\draw (1.8,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+اجتماع $n$ مجموعه‌ی
+$A_1, A_2, \cdots, A_n$
+را با نماد زیر نشان می‌دهیم.
+$$\bigcup_{i=1}^{n}A_i$$
+\begin{example}
+	اگر
+	$A=\{a,b,c,d,e\}$ و $B=\{a,e,i,o,u\}$،
+	آنگاه
+	$A \cup B = \{a,b,c,d,e,i,o,u\}$.
+\end{example}
+\begin{example}
+	ثابت کنید
+	$A \cup B = A$
+	اگر و تنها اگر
+	$B \subseteq A$.
+	\\ \textbf{پاسخ:}
+	اثبات
+	($\Rightarrow$):
+	فرض کنید
+	$A \cup B = A$.
+	اگر
+	$B = \varnothing$
+	آنگاه می‌دانیم
+	$B \subseteq A$.
+	اگر
+	$B \neq \varnothing$
+	آنگاه فرض کنید
+	$x \in B$،
+	در نتیجه
+	$x \in A \cup B$.
+	چون
+	$A \cup B = A$،
+	در نتیجه
+	$x \in A$.
+	پس اگر
+	$x \in B$
+	آنگاه
+	$x \in A$.
+	یعنی
+	$B \subseteq A$. \\
+	اثبات
+	($\Leftarrow$):
+	فرض کنید
+	$B \subseteq A$.
+	اگر
+	$B = \varnothing$
+	آنگاه می‌دانیم
+	$B \cup A = \varnothing \cup A = A$.
+	اگر
+	$B \neq \varnothing$
+	آنگاه اگر
+	$x \in B$
+	حتماً
+	$x \in A$.
+	در نتیجه
+	$\{x\} \cup A = A$.
+	اما این برای همه‌ی
+	$x \in B$
+	درست است، پس
+	$B \cup A = A$. \\
+	بنابراین اثبات کامل است.
+	\qed
+\end{example}
+\smallskip
+\textbf{اشتراک:}
+اشتراک مجموعه‌های $A$ و $B$ مجموعه‌ای است از همه‌ی عنصرهایی که متعلق به $A$ و متعلق به $B$ باشند. اشتراک $A$ و $B$ را به صورت
+$A \cap B$
+نشان می‌دهیم.
+$$A \cap B = \{x \ | \ x \in A \ \wedge x \in B\}$$
+\vspace{-9mm}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, minimum size =3cm}, scale=0.8, transform shape]
+		\draw[thick] (-2.1,-2.1) rectangle (3.9,2.1) node[above left, xshift=7mm, yshift=-7mm] {$\mathbb{U}$};
+		\node[set,label={135:$A$}] (A) at (0,0) {};
+		\node[set,label={45:$B$}] (B) at (1.8,0) {};
+		\begin{scope}
+			\clip (0,0) circle(1.5cm);
+			\clip (1.8,0) circle(1.5cm);
+			\fill[MidnightBlue!40](0,0) circle(1.5cm);
+		\end{scope}
+		\draw (0,0) circle(1.5cm);
+		\draw (1.8,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+اشتراک $n$ مجموعه‌ی
+$A_1, A_2, \cdots, A_n$
+را با نماد زیر نشان می‌دهیم.
+$$\bigcap_{i=1}^{n}A_i$$
+\begin{example}
+	اگر
+	$A=\{1,2,3,4,5,6\}$ و $B=\{1,3,5,7,9\}$،
+	آنگاه
+	$A \cap B = \{1,3,5\}$.
+\end{example}
+\smallskip
+\textbf{مجموعه‌های جدا از هم:}
+اگر
+$A \cap B = \varnothing$،
+می‌گوییم $A$ و $B$ جدا از هم هستند.	
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, minimum size =3cm}, scale=0.8, transform shape]
+		\draw[thick] (-2.1,-2.1) rectangle (5.3,2.1) node[above left, xshift=7mm, yshift=-7mm] {$\mathbb{U}$};
+		\node[set, label={135:$A$}] (A) at (0,0) {};
+		\node[set, label={45:$B$}] (B) at (3.2,0) {};
+		\draw (0,0) circle(1.5cm);
+		\draw (3.2,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+
+\begin{example}
+	دو مجموعه‌ی
+	$A=\{1,2,3\}$ و $B=\{4,5,6\}$
+	جدا از هم هستند، چون
+	$A \cap B = \varnothing$.
+\end{example}
+\begin{example}
+	اگر $A$ و $B$ دو مجموعه‌ی جدا از هم و $B$ و $C$ نیز دو مجموعه‌ی جدا از هم باشند، آیا می‌توان گفت $A$ و $C$ نیز جدا از هم هستند؟
+	\\ \textbf{پاسخ:}
+	خیر، برای مثال:
+	$A=\{1,2,3\} \ , \quad B=\{4,5,6\} \ , \quad C=\{0,1,2\}$
+\end{example}
+\smallskip
+\textbf{متمم:}
+متمم مجموعه‌ی $A$ که به صورت
+$A'$ یا $A^c$
+نوشته می‌شود، شامل همه‌ی عنصرهای معتلق به
+$\mathbb{U}$
+است که در $A$ نیستند. به این مجموعه، متمم مطلق نیز می‌گویند.
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 3cm}, scale=0.8, transform shape]
+		\fill[MidnightBlue!40] (-2.1,-2.1) rectangle (3.9,2.1);
+		\node[set, fill=white, label={135:$A$}] (A) at (0,0) {};
+		\draw[thick] (-2.1,-2.1) rectangle (3.9,2.1) node[above left, xshift=8mm, yshift=-7mm] {$\mathbb{U}$};
+		\draw (0,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+
+\begin{example}
+	فرض کنید
+	$\mathbb{U} = \{0,1,2, \cdots, 9\}$،
+	$A = \{1,3,5,7\}$ و $B = \{0,1,2,3,4\}$.
+	حاصل عبارت‌های زیر را بیابید.
+	\vspace{-3mm}
+	\begin{multicols}{3}
+		\begin{enumerate}
+			\item 
+			$A \cap B'$
+			\item 
+			$A' \cap B'$
+			\item 
+			$(A \cup B)'$
+		\end{enumerate}
+	\end{multicols}
+	\noindent \textbf{پاسخ:}
+	$$A' = \{0,2,4,6,8,9\} \quad , \quad B' = \{5,6,7,8,9\}$$
+	$$A \cap B' = \{5,7\} \quad , \quad A' \cap B' = \{6,8,9\}$$
+	$$A \cup B = \{0,1,2,3,4,5,7\} \quad , \quad (A \cup B)' = \{6,8,9\}$$
+\end{example}
+\begin{example}
+	آیا متمم‌های دو مجموعه‌ی جدا از هم، جدا از هم خواهند بود؟
+	\\ \textbf{پاسخ:}
+	خیر. فرض کنید
+	$\mathbb{U}=\{0,1,2,3,4,5\}$.
+	در نظر بگیرید:
+	$$A=\{0,1\} \ , \quad B=\{2,3\} \ , \quad A'=\{2,3,4,5\} \ , \quad B'=\{0,1,4,5\}$$
+\end{example}
+\smallskip
+\textbf{تفاضل:}
+تفاضل دو مجموعه‌ی $A$ و $B$ که گاهی متمم نسبی هم نامیده می‌شود، همه‌ی عنصرهای متعلق به $A$ است که در $B$ نیستند. تفاضل $A$ و $B$ (با همین ترتیب) را به صورت
+$A-B$ یا $A \setminus B$
+نشان می‌دهند.
+$$A \setminus B = \{x \ | \ x \in A \ \wedge \ x \notin B\}$$
+\vspace{-9mm}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 3cm}, scale=0.8, transform shape]
+		\draw[thick] (-2.1,-2.1) rectangle (3.9,2.1) node[above left, xshift=7mm, yshift=-7mm] {$\mathbb{U}$};
+		\node[set,fill=MidnightBlue!40,label={135:$A$}] (A) at (0,0) {};
+		\node[set,fill=white,label={45:$B$}] (B) at (0:2) {};
+		\draw (0,0) circle(1.5cm);
+		\draw (2,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+\noindent
+\textbf{تفاضل متقارن:}
+تفاضل متقارن بین دو مجموعه‌ی $A$ و $B$ شامل اعضایی است که دقیقاً به یکی از دو مجموعه‌ی $A$ یا $B$ تعلق دارند. این مجموعه با
+$A \Delta B$
+نمایش داده می‌شود.
+$$A \Delta B = \{A \setminus B\} \cup (B \setminus A)$$
+\vspace{-9mm}
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[thick, set/.style = {circle, minimum size = 3cm}, scale=0.8, transform shape]
+		\draw[thick] (-2.1,-2.1) rectangle (3.9,2.1) node[above left, xshift=7mm, yshift=-7mm] {$\mathbb{U}$};
+		\node[set, fill=MidnightBlue!40, label={135:$A$}] (A) at (0,0) {};
+		\node[set, fill=MidnightBlue!40, label={45:$B$}] (B) at (2,0) {};
+		\begin{scope}
+			\clip (0,0) circle(1.5cm);
+			\fill[white] (2,0) circle(1.5cm);
+		\end{scope}
+		\draw (0,0) circle(1.5cm);
+		\draw (2,0) circle(1.5cm);
+	\end{tikzpicture}
+\end{figure}
+
+\begin{example}
+	اگر
+	$A=\{1,2,3,4,5\}$ و $B=\{3,4,5,6,7\}$،
+	حاصل
+	$A \setminus B$ و $B \setminus A$ و $A \Delta B$
+	را به دست آورید.
+	\\ \textbf{پاسخ:}
+	$$A \setminus B = \{1,2\} \quad , \quad B \setminus A = \{6,7\} \quad , \quad A \Delta B = \{1,2,6,7\}$$
+\end{example}
+\begin{example}
+	اگر
+	$A \subseteq B$،
+	ثابت کنید
+	$A \Delta B = B \setminus A$.
+	\\ \textbf{پاسخ:}
+	$$A \subseteq B \Rightarrow A \setminus B = \varnothing$$
+	$$A \Delta B = (A \setminus B) \cup (B \setminus A) = \varnothing \cup (B \setminus A) = B \setminus A$$
+	\qed
+\end{example}
+
+
+\begin{theorem}
+	در نظریه‌ی مجموعه‌ها چنین است:
+	\vspace{-0.3cm}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+			$A \cup B = B \cup A$
+			\item 
+			$A \cap B = B \cap A$
+			\item 
+			$A \cup (B \cup B) = (A \cup B) \cup C$
+			\item 
+			$A \cap (B \cap C) = (A \cap B) \cap C$
+			\item 
+			$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+			\item 
+			$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+			\item 
+			$A \cup \varnothing = A$
+			\item 
+			$A \cap \varnothing = \varnothing$
+			\item 
+			$A \cup \mathbb{U} = \mathbb{U}$
+			\item 
+			$A \cap \mathbb{U} = A$
+			\item 
+			$A \cup A = A$
+			\item 
+			$A \cap A = A$
+			\item 
+			$A \cap (A \cup B) = A$
+			\item 
+			$A \cup (A \cap B) = A$
+			\item 
+			$A \cup A' = \mathbb{U}$
+			\item 
+			$A \cap A' = \varnothing$
+			\item 
+			$(A')' = A$
+			\item 
+			$(A \cup B)' = A' \cap B'$
+			\item 
+			$(A \cap B)' = A' \cup B'$
+			\item 
+			$A \setminus B = A \cap B'$
+			\item 
+			$A \setminus A = \varnothing$
+			\item 
+			$A \setminus \varnothing = A$
+			\item 
+			$\varnothing \setminus A = \varnothing$
+			\item 
+			$\mathbb{U} \setminus A = A'$
+			\item 
+			$A \setminus \mathbb{U} = \varnothing$
+			\item 
+			$A \setminus A' = A$
+			\item 
+			$A \Delta B = B \Delta A$
+			\item 
+			$A \Delta B = A' \Delta B'$
+			\item 
+			$A \Delta (B \Delta C) = (A \Delta B) \Delta C$
+			\item 
+			$A \Delta \varnothing = A$
+			\item 
+			$A \Delta A = \varnothing$
+			\item 
+			$A \Delta A' = \mathbb{U}$
+		\end{enumerate}
+	\end{multicols}
+\end{theorem}
+
+\begin{example}
+	طرف دوم تساوی‌های زیر را به دست آورید.
+	\begin{enumerate}
+		\item 
+		$A \cup (A \cap B')' = ?$
+		\item 
+		$(A \cup \mathbb{U}')' \cup (A \cup \varnothing')' = ?$
+	\end{enumerate}
+	\textbf{پاسخ:}
+	$$A \cup (A \cap B')' = A \cup (A' \cup B) = (A \cup A') \cup B = \mathbb{U} \cup B = \mathbb{U}$$
+	$$(A \cup \mathbb{U}')' \cup (A \cup \varnothing')' = (A \cup \varnothing)' \cup (A \cup \mathbb{U})' = A' \cup \mathbb{U}' = A' \cup \varnothing = A'$$
+\end{example}
 
 \section{حاصل‌ضرب دکارتی دو مجموعه}
 
@@ -25,3 +664,64 @@
 \section{افراز یک مجموعه}
 
 \section{رابطه‌ی هم‌ارزی}
+
+\section{مسئله‌ها}
+\begin{problem} \label{seprmozv}
+	مجموعه‌های زیر را با عضوهایشان مشخص کنید.
+	\vspace{-5mm}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+			$A=\{x+4 \ | \ (x-5) \in \mathbb{N} \ \wedge \ \dfrac{x}{2} \in \mathbb{N}\}$
+			\item 
+			$B=\{\sqrt{x+7} \ | \ \dfrac{x}{3} \in \mathbb{Z} \ \wedge \ x \geq -8\}$
+			\item 
+			$C=\{2^x \times 3^y \ | \ x,y \in \mathbb{N} \ \wedge \ x+y=5\}$
+			\item 
+			$D=\{x \ | \ x \in \mathbb{N} \ \wedge \ \sqrt{x}<0\}$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{1pt}
+\end{problem}
+
+\begin{problem} \label{seprmar}
+	مجموعه‌های زیر را با زبان (علائم) ریاضی بنویسید.
+	\vspace{-5mm}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item 
+			$E=\{0,2,8,26\}$
+			\item 
+			$F=\{-9,-3,-1,1,3,9\}$
+			\item 
+			$G=\left\{-1, \dfrac{1}{2}, \dfrac{3}{4}, \dfrac{5}{8}\right\}$
+			\item 
+			$H=\{7,77,777,7777,77777\}$
+		\end{enumerate}
+	\end{multicols}
+	\vspace{1pt}
+\end{problem}
+
+\begin{problem} \label{seprkAx2+k}
+	فرض کنید $k$ یک عدد ثابت است و
+	$A=\{x^2+k \ | \ x \in \mathbb{Z} \ \wedge \ -3 \leq x < k\}$.
+	اگر
+	$\{6,9\} \subseteq A$،
+	آنگاه مجموعه‌ی $A$ را با عضوهای آن مشخص کنید.
+\end{problem}
+\begin{problem} \label{seprsv8zm}
+	مجموعه‌ی
+	$V=\{a,b,c,d,e,f\}$
+	را در نظر بگیرید. هشت زیرمجموعه‌ی سه عضوی از $V$ چنان انتخاب کنید که هر زیرمجموعه‌ی دو عضوی $V$ یا زیرمجموعه‌ی دقیقاً دو تا از این هشت مجموعه باشد یا زیرمجموعه‌ی هیچ کدام از این هشت مجموعه نباشد.
+\end{problem}
+\begin{problem} \label{seprprjmsetminus}
+	درستی تساوی‌های زیر را ثابت کنید.
+	\begin{enumerate}
+		\item 
+		$(A \cup (A \cap B)) \setminus (B \cap (B \cup A)) = A \cap B'$
+		\item 
+		$(A \cup B') \cap (A' \cup B) = (B' \setminus A) \cup (A \setminus B')$
+		\item 
+		$(A \cup B) \setminus (B \cup C) = (A \setminus B) \setminus C$
+	\end{enumerate}
+\end{problem}
