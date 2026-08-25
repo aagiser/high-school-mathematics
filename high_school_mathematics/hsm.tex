@@ -16,6 +16,7 @@
 \usepackage{dsfont} %includes some symbols?
 \usepackage{systeme} %system of equations
 \usepackage{enumitem} %bullet points
+\usepackage{multicol}
 \usepackage{tikz} %draw diagrams
 \usepackage{mathtools}
 \usepackage{xparse}
@@ -32,8 +33,11 @@
 \usepackage{epigraph}
 \usepackage{tkz-graph}
 \usepackage{tcolorbox}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{venndiagram}
 \tcbuselibrary{skins, breakable, theorems}
-\usetikzlibrary{calc}
+\usetikzlibrary{calc, angles, quotes, arrows.meta, fit}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[pdfinfo=on]{xepersian}
 \settextfont{XB Niloofar}
@@ -59,7 +63,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Commands:
 \newcommand{\dd}{\,\mathrm{d}}
-\newcommand{\df}{\noindent \makebox[\linewidth]{\textcolor{magenta}{\dotfill}}}
+\newcommand{\df}{\noindent \makebox[\linewidth]{\textcolor{WildStrawberry}{\dotfill}}}
+\newcommand{\dfth}{\noindent \makebox[\linewidth]{\textcolor{Tan}{\dotfill}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Environments:
 \mdfsetup{skipabove=2pt,skipbelow=2pt}
@@ -111,7 +116,11 @@
 \begin{document}
 	
 	\author{علی عاشوری}
-	\title{\textbf{ریاضیات دبیرستانی}}
+	\title{
+		{\Huge \textcolor{RoyalPurple}{\textbf{ریاضیات دبیرستانی}}}
+		\\ \bigskip \smallskip
+		{\normalsize دوره‌ای فشرده برای ریاضی‌آموزان آماتور}
+		}
 	%\date{January 2013}
 	
 %	\begin{titlepage}
@@ -135,9 +144,9 @@
 	\mainmatter
 	\part{مبانی}
 	\include{./TeX_files/logic}
-	\include{./TeX_files/sets}
 	\include{./TeX_files/numbers}
 	\include{./TeX_files/proofs}
+	\include{./TeX_files/sets}
 	
 	\part{جبر}
 	\include{./TeX_files/algebra}
@@ -174,7 +183,9 @@
 	\include{./TeX_files/integrals}
 	
 	\backmatter
-	\part{ضمیمه‌ها}
+	\appendix
+	\renewcommand{\thechapter}{}
+	\part{پیوست‌ها}
 	\include{./TeX_files/solutions}
 	\include{./TeX_files/glossary}
 	\include{./TeX_files/bibliography}
